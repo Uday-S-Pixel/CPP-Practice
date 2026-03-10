@@ -1,3 +1,14 @@
+/* Program to demonstrate the basic concept of pointers in C++.
+
+   In this program:
+   - An integer variable is created and the user enters its value.
+   - A pointer is declared to store the address of that variable.
+   - The program displays the value of the variable, its memory address,
+     and accesses the value using the pointer.
+
+   This demonstrates how pointers store addresses and how the
+   dereference operator (*) can be used to access the value.
+*/
 #include <iostream>
 using namespace std;
 
