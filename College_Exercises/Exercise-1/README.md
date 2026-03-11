@@ -8,7 +8,6 @@ The questions for this exercise are listed below.
    **"Hello, Welcome to C++ Programming."**
 
 2. Write a program to print the **name and roll number** of a student:
-   - in a single line
    - in two separate lines.
 
 3. Write a program to print a **name** by:
