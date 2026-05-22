@@ -1,8 +1,10 @@
 /*
-  taking input is done
-  work to be done on functions part
+  conversion of any radix to
+  decimal system is completed
 */
+  
 #include <iostream>
+#include <cmath>
 using namespace std; 
 
 class input
@@ -150,6 +152,90 @@ class conv:public input
 };
 
 void conv::bin_to_oct()
+{
+
+}
+
+void conv::bin_to_decimal()
+{
+ int num = 0;
+ int power = binary.length() - 1;
+ for(int i = 0;i < binary.length();i ++)
+ {
+  num = int(binary[i]-'0') * pow(2,power) + num;
+  power -- ;
+ }
+ cout << "Resultant decimal number is " << num << endl;
+}
+
+void conv::bin_to_hex()
+{
+
+}
+
+void conv::oct_to_bin()
+{
+
+}
+
+void conv::oct_to_decimal()
+{
+ int num = 0;
+ int power = octal.length() - 1;
+ for(int i = 0;i < octal.length();i ++)
+ {
+  num = int(octal[i]-'0') * pow(8,power) + num;
+  power -- ;
+ }
+ cout << "Resultant decimal number is " << num << endl;
+}
+
+void conv::oct_to_hex()
+{
+
+}
+
+void conv::decimal_to_bin()
+{ 
+
+}
+
+void conv::decimal_to_octa()
+{
+
+}
+
+void conv::decimal_to_hex()
+{
+
+}
+
+void conv::hex_to_bin()
+{
+
+}
+
+void conv::hex_to_decimal()
+{
+ int num = 0;
+ int power = hexnum.length() - 1;
+ for(int i = 0;i < hexnum.length();i ++)
+ {
+  if(hexnum[i] >= 'A' && hexnum[i] <= 'F')
+  {
+  num = int(hexnum[i]-'A' + 10) * pow(16,power) + num;
+  power -- ;
+  }
+  else
+  {
+  num = int(hexnum[i]-'0') * pow(16,power) + num;
+  power -- ; 
+  }
+ }
+ cout << "Resultant decimal number is " << num << endl;
+}
+
+void conv::hex_to_octa()
 {
   
 }
