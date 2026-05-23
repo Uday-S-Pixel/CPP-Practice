@@ -1,8 +1,3 @@
-/*
-  conversion of any radix to
-  decimal system is completed
-*/
-  
 #include <iostream>
 #include <cmath>
 using namespace std; 
@@ -158,14 +153,27 @@ void conv::bin_to_oct()
 
 void conv::bin_to_decimal()
 {
- int num = 0;
- int power = binary.length() - 1;
- for(int i = 0;i < binary.length();i ++)
+  int num = 0;
+  int power = binary.length() - 1;
+ try
+ {
+  for(int i =0; i < binary.length();i ++)
+  {
+    if (int(binary[i]-'0') != 0 && int(binary[i]-'0') != 1)
+    throw int(binary[i]-'0');
+  }
+  for(int i = 0;i < binary.length();i ++)
  {
   num = int(binary[i]-'0') * pow(2,power) + num;
   power -- ;
  }
  cout << "Resultant decimal number is " << num << endl;
+}
+ catch(int x)
+ {
+  cout << "Entered number is invalid " << endl;
+  cout << "You cannot enter " << x << " in binary number system" << endl;
+ }
 }
 
 void conv::bin_to_hex()
@@ -182,10 +190,25 @@ void conv::oct_to_decimal()
 {
  int num = 0;
  int power = octal.length() - 1;
+ try
+ {
+ for (int i = 0;i < octal.length();i ++)
+ {
+  if (int(octal[i] - '0') >= 8 || int(octal[i] - '0') < 0)    
+  {
+    throw int(octal[i] - '0');
+  }
+ }
  for(int i = 0;i < octal.length();i ++)
  {
   num = int(octal[i]-'0') * pow(8,power) + num;
   power -- ;
+ }
+ }
+ catch (int c)
+ {
+  cout << "Entered Octal number is invalid " << endl;
+  cout << c << "  is invalid in octal system "<< endl;
  }
  cout << "Resultant decimal number is " << num << endl;
 }
@@ -219,7 +242,14 @@ void conv::hex_to_decimal()
 {
  int num = 0;
  int power = hexnum.length() - 1;
- for(int i = 0;i < hexnum.length();i ++)
+ try
+ {
+  for(int i = 0;i < hexnum.length();i ++)
+  {
+   if(!(hexnum[i] >= '0' && hexnum[i] <= '9') && !(hexnum[i] >= 'A' && hexnum[i] <= 'F'))
+   throw hexnum[i];
+  }
+  for(int i = 0;i < hexnum.length();i ++)
  {
   if(hexnum[i] >= 'A' && hexnum[i] <= 'F')
   {
@@ -233,6 +263,12 @@ void conv::hex_to_decimal()
   }
  }
  cout << "Resultant decimal number is " << num << endl;
+ }
+ catch (char term)
+ {
+  cout << "Entered hexadecimal number is invalid ";
+  cout << term << "  is not present is hexadecimal system ";
+ }
 }
 
 void conv::hex_to_octa()
