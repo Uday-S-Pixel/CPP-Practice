@@ -214,23 +214,37 @@ void conv::oct_to_decimal()
 }
 
 void conv::oct_to_hex()
-{
+{                    
 
 }
 
 void conv::decimal_to_bin()
 { 
-
+ //stoi means string to integer
+ int num = stoi(decimal);
+ while (num > 0)
+{
+ int rem = num % 2;
+ binary = char(rem + '0') + binary;
+ num = num / 2;
 }
-
+ cout << "Resultant binary number is " << binary;
+}
 void conv::decimal_to_octa()
 {
-
+ int num = stoi(decimal);
+ while (num > 0)
+ {
+  int rem = num % 8;
+  octal =char(rem + '0') + octal;
+  num = num / 8;
+ }
+ cout << "Resultant octal number is " << octal;
 }
 
 void conv::decimal_to_hex()
 {
-
+ 
 }
 
 void conv::hex_to_bin()
